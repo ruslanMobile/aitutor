@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.languages.aitutor"
+    namespace = "com.languages.tutordebug"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.languages.aitutor"
+        applicationId = "com.languages.tutordebug"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -24,11 +24,19 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            manifestPlaceholders["crashlyticsCollectionEnabled"] = "true"
+            manifestPlaceholders["appName"] = "Ai tutor"
+        }
+
+        debug {
+            manifestPlaceholders["crashlyticsCollectionEnabled"] = "true"
+            manifestPlaceholders["appName"] = "Debug Ai tutor"
         }
     }
     compileOptions {
@@ -47,6 +55,19 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    flavorDimensions("version")
+
+    productFlavors {
+        create("dev") {
+            //signingConfig = signingConfigs.getByName("release")
+            applicationId = "com.languages.tutordebug"
+        }
+        create("prod") {
+            //signingConfig = signingConfigs.getByName("release")
+            applicationId = "com.languages.aitutor"
         }
     }
 }
@@ -113,7 +134,7 @@ dependencies {
 //
     //Firebase
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
-    implementation ("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-crashlytics")
     implementation("com.google.firebase:firebase-analytics-ktx")
 
     //Play services

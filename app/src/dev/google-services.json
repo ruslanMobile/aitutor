@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326300193168",
+    "project_id": "ai-tutor-debug",
+    "storage_bucket": "ai-tutor-debug.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326300193168:android:c686f7b04cce781d496315",
+        "android_client_info": {
+          "package_name": "com.languages.tutordebug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY4cBR4yRr5GIeT2txdxUAWe5GmJCMawE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

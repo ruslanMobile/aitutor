@@ -1,4 +1,4 @@
-package com.languages.aitutor
+package com.languages.tutordebug
 
 import org.junit.Test
 

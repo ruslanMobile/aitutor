@@ -1,4 +1,4 @@
-package com.languages.aitutor.ui.theme
+package com.languages.tutordebug.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

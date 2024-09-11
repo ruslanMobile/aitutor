@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1069975498172",
+    "project_id": "ai-tutor-prod-35c62",
+    "storage_bucket": "ai-tutor-prod-35c62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069975498172:android:f7dd0f15a8a244b80a8fb9",
+        "android_client_info": {
+          "package_name": "com.languages.aitutor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBenBMKN1XvX23np6bRq0i85xaoLlUA43Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
