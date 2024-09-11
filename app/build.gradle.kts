@@ -96,7 +96,7 @@ dependencies {
 
 //    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
 //    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
-//    implementation 'androidx.core:core-splashscreen:1.0.0'
+    implementation("androidx.core:core-splashscreen:1.0.0")
 //
     // Compose
     // implementation "androidx.compose.ui:ui:1.4.3"
