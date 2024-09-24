@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ai tutor</string>
+
+    <string name="label_number_out_of_number">%s/%s</string>
+    <string name="label_customized_speaking_pronunciation_coaching">Customized Speaking &amp; Pronunciation Coaching</string>
+
+    <string name="text_improve_you_speaking_and_pronunciation">Improve your speaking and pronunciation with personalized coaching, tailored for all English levels to boost your confidence.</string>
+
+    <string name="btn_continue">Continue</string>
 </resources>

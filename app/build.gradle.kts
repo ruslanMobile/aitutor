@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -97,6 +98,7 @@ dependencies {
 //    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
 //    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("com.google.accompanist:accompanist-drawablepainter:0.28.0")
 //
     // Compose
     // implementation "androidx.compose.ui:ui:1.4.3"
