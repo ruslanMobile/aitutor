@@ -1,5 +1,6 @@
-package com.languages.tutordebug.ui.screens.onboarding.about_app_first
+package com.languages.tutordebug.ui.screens.onboarding.about_app_second
 
+import android.app.Activity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -9,19 +10,26 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -29,23 +37,46 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import com.languages.tutordebug.R
+import com.languages.tutordebug.BuildConfig
 import com.languages.tutordebug.ui.LocalNavController
-import com.languages.tutordebug.ui.model.Screen.AboutAppSecond
+import com.languages.tutordebug.ui.model.Screen
 import com.languages.tutordebug.utils.fontDimensionResource
 
 @Composable
-fun AboutAppFirstScreen() {
+fun AboutAppSecondScreen() {
     val navController = LocalNavController.current
-    AboutAppFirstContent {
-        navController.navigate(AboutAppSecond.route)
+    val activity = LocalContext.current as Activity
+    val viewModel: AboutAppSecondVM = hiltViewModel()
+
+    val appReviewState = remember {
+        mutableStateOf(false)
     }
+
+    LaunchedEffect(key1 = appReviewState.value) {
+        if (appReviewState.value) {
+            viewModel.launchAppReviewFlow(activity) {
+                navController.navigate(Screen.UserName.route)
+            }
+        }
+    }
+    AboutAppSecondContent({
+        if (BuildConfig.DEBUG) {
+            navController.navigate(Screen.UserName.route)
+        } else {
+            appReviewState.value = true
+        }
+    }, {
+        navController.popBackStack()
+    })
 }
 
 @Composable
-fun AboutAppFirstContent(
-    funcNextScreen: () -> Unit
+fun AboutAppSecondContent(
+    funcNextScreen: () -> Unit,
+    funcBack: () -> Unit
 ) {
     Surface(
         modifier = Modifier
@@ -71,10 +102,23 @@ fun AboutAppFirstContent(
                     .padding(horizontal = dimensionResource(id = R.dimen.offset_16))
                     .weight(2f),
                 verticalAlignment = Alignment.Bottom,
-                horizontalArrangement = Arrangement.End
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
+                IconButton(
+                    modifier = Modifier
+                        .size(dimensionResource(id = R.dimen.offset_32)),
+                    onClick = {
+                        funcBack.invoke()
+                    }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_arrow_back),
+                        tint = MaterialTheme.colorScheme.onSurface,
+                        contentDescription = ""
+                    )
+                }
+
                 Text(
-                    text = stringResource(id = R.string.label_number_out_of_number, "1", "3"),
+                    text = stringResource(id = R.string.label_number_out_of_number, "2", "3"),
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
@@ -83,7 +127,7 @@ fun AboutAppFirstContent(
                 painter = rememberDrawablePainter(
                     drawable = ContextCompat.getDrawable(
                         LocalContext.current,
-                        R.drawable.photo_about_app_1
+                        R.drawable.photo_about_app_2
                     )
                 ),
                 contentDescription = "",
@@ -94,7 +138,7 @@ fun AboutAppFirstContent(
             )
 
             Text(
-                text = stringResource(id = R.string.label_customized_speaking_pronunciation_coaching),
+                text = stringResource(id = R.string.label_create_your_personal_study_plan),
                 style = TextStyle(
                     fontSize = fontDimensionResource(id = R.dimen.text_26),
                     color = MaterialTheme.colorScheme.primary,
@@ -104,10 +148,11 @@ fun AboutAppFirstContent(
                 modifier = Modifier
                     .weight(3f)
                     .wrapContentHeight(Alignment.Bottom)
+                    .padding(horizontal = dimensionResource(id = R.dimen.offset_26))
             )
 
             Text(
-                text = stringResource(id = R.string.text_onboarding_screen_1),
+                text = stringResource(id = R.string.text_onboarding_screen_2),
                 style = TextStyle(
                     fontSize = fontDimensionResource(id = R.dimen.text_18),
                     color = MaterialTheme.colorScheme.secondary,
@@ -158,6 +203,6 @@ fun AboutAppFirstContent(
 
 @Preview(showSystemUi = true)
 @Composable
-fun AboutAppFirstPreview() {
-    AboutAppFirstContent {}
+fun AboutAppSecondPreview() {
+    AboutAppSecondContent({}, {})
 }

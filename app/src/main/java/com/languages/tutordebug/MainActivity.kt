@@ -17,6 +17,8 @@ import com.languages.tutordebug.ui.LocalNavController
 import com.languages.tutordebug.ui.model.Navigation.*
 import com.languages.tutordebug.ui.model.Screen.*
 import com.languages.tutordebug.ui.screens.onboarding.about_app_first.AboutAppFirstScreen
+import com.languages.tutordebug.ui.screens.onboarding.about_app_second.AboutAppSecondScreen
+import com.languages.tutordebug.ui.screens.onboarding.user_name.UserNameScreen
 import com.languages.tutordebug.ui.theme.AiTutorTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,6 +44,12 @@ class MainActivity : ComponentActivity() {
                         ) {
                             composable(AboutAppFirst.route) {
                                 AboutAppFirstScreen()
+                            }
+                            composable(AboutAppSecond.route) {
+                                AboutAppSecondScreen()
+                            }
+                            composable(UserName.route) {
+                                UserNameScreen()
                             }
                         }
                     }

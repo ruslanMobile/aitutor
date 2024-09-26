@@ -49,6 +49,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -96,7 +97,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 //    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
-//    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
     implementation("androidx.core:core-splashscreen:1.0.0")
     implementation("com.google.accompanist:accompanist-drawablepainter:0.28.0")
 //
@@ -123,6 +125,9 @@ dependencies {
     implementation("androidx.test:runner:1.5.2")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
     kapt("androidx.hilt:hilt-compiler:1.1.0-alpha01")
+
+    //Rating Api
+    implementation("com.google.android.play:review-ktx:2.0.1")
 
 //
 //    //Test

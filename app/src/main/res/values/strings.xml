@@ -3,8 +3,10 @@
 
     <string name="label_number_out_of_number">%s/%s</string>
     <string name="label_customized_speaking_pronunciation_coaching">Customized Speaking &amp; Pronunciation Coaching</string>
+    <string name="label_create_your_personal_study_plan">Create Your Personal\nStudy Plan</string>
 
-    <string name="text_improve_you_speaking_and_pronunciation">Improve your speaking and pronunciation with personalized coaching, tailored for all English levels to boost your confidence.</string>
+    <string name="text_onboarding_screen_1">Improve your speaking and pronunciation with personalized coaching, tailored for all English levels to boost your confidence.</string>
+    <string name="text_onboarding_screen_2">With this app, you\'ll study what interests you and discuss topics of your choice. Customize your learning to match your preferences and reach your goals efficiently.</string>
 
     <string name="btn_continue">Continue</string>
 </resources>
