@@ -58,13 +58,13 @@ fun AboutAppSecondScreen() {
     LaunchedEffect(key1 = appReviewState.value) {
         if (appReviewState.value) {
             viewModel.launchAppReviewFlow(activity) {
-                navController.navigate(Screen.UserName.route)
+                navController.navigate(Screen.NativeLanguageScreen.route)
             }
         }
     }
     AboutAppSecondContent({
         if (BuildConfig.DEBUG) {
-            navController.navigate(Screen.UserName.route)
+            navController.navigate(Screen.NativeLanguageScreen.route)
         } else {
             appReviewState.value = true
         }

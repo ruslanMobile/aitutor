@@ -120,11 +120,11 @@ dependencies {
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     // Hilt
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
-    implementation("com.google.dagger:hilt-android:2.44")
-    implementation("androidx.test:runner:1.5.2")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
-    kapt("androidx.hilt:hilt-compiler:1.1.0-alpha01")
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.android)
+    implementation("androidx.test:runner:1.6.2")
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.androidx.hilt.compiler)
 
     //Rating Api
     implementation("com.google.android.play:review-ktx:2.0.1")
