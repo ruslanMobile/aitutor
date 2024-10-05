@@ -16,4 +16,7 @@ sealed class Screen(val route: String) : Parcelable {
 
     @Parcelize
     object NativeLanguageScreen : Screen("nativeLanguageScreen")
+
+    @Parcelize
+    object DesiredLanguageScreen : Screen("desiredLanguageScreen")
 }

@@ -84,5 +84,7 @@ class PreferenceDataStoreManager @Inject constructor(
     companion object Keys {
         const val PREF_NAME = "tutor_data"
         val USER_LANGUAGE_KEY = stringPreferencesKey("user_language")
+        val USER_NAME_KEY = stringPreferencesKey("user_name")
+        val DESIRED_LANGUAGE_KEY = stringPreferencesKey("desired_language")
     }
 }

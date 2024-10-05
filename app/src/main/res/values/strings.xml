@@ -5,10 +5,15 @@
     <string name="label_customized_speaking_pronunciation_coaching">Customized Speaking &amp; Pronunciation Coaching</string>
     <string name="label_create_your_personal_study_plan">Create Your Personal\nStudy Plan</string>
     <string name="label_native_language">What’s your native\nlanguage?</string>
+    <string name="label_whats_your_name">What’s your name?</string>
+    <string name="label_wich_language_do_you_wanna_learn">Which language do you want to learn?</string>
 
     <string name="text_onboarding_screen_1">Improve your speaking and pronunciation with personalized coaching, tailored for all English levels to boost your confidence.</string>
     <string name="text_onboarding_screen_2">With this app, you\'ll study what interests you and discuss topics of your choice. Customize your learning to match your preferences and reach your goals efficiently.</string>
     <string name="text_choose_your_native_language">Choose your native or preferred language for translation.</string>
 
     <string name="btn_continue">Continue</string>
+    <string name="btn_skip">Skip</string>
+
+    <string name="hint_name">Name</string>
 </resources>
