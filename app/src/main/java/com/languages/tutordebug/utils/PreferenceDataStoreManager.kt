@@ -15,6 +15,17 @@ class PreferenceDataStoreManager @Inject constructor(
     private val dataStore: DataStore<Preferences>
 ) {
 
+    suspend fun saveInt(key: Preferences.Key<Int>, value: Int) {
+        dataStore.edit { settings ->
+            settings[key] = value
+        }
+    }
+
+    suspend fun readInt(key: Preferences.Key<Int>): Int? {
+        val prefs = dataStore.data.first()
+        return prefs[key]
+    }
+
     suspend fun saveBoolean(key: Preferences.Key<Boolean>, value: Boolean) {
         dataStore.edit { settings ->
             settings[key] = value
@@ -86,5 +97,6 @@ class PreferenceDataStoreManager @Inject constructor(
         val USER_LANGUAGE_KEY = stringPreferencesKey("user_language")
         val USER_NAME_KEY = stringPreferencesKey("user_name")
         val DESIRED_LANGUAGE_KEY = stringPreferencesKey("desired_language")
+        val LANGUAGE_LEVEL_KEY = intPreferencesKey("language_level")
     }
 }

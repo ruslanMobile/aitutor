@@ -51,6 +51,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.languages.tutordebug.R
 import com.languages.tutordebug.ui.LocalNavController
 import com.languages.tutordebug.ui.custom_ui.BasicAuthTextField
+import com.languages.tutordebug.ui.model.Screen.LanguageLevelScreen
 import com.languages.tutordebug.ui.model.Screen.UserName
 import com.languages.tutordebug.utils.desiredLanguagesList
 import com.languages.tutordebug.utils.fontDimensionResource
@@ -61,7 +62,7 @@ fun DesiredLanguageScreen() {
     val viewModel: DesiredLanguageVM = hiltViewModel()
     DesiredLanguageContent({ value ->
         viewModel.storeDesiredLanguage(value)
-        //navController.navigate(UserName.route)
+        navController.navigate(LanguageLevelScreen.route)
     }, {
         navController.popBackStack()
     })

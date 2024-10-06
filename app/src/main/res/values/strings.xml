@@ -7,10 +7,18 @@
     <string name="label_native_language">What’s your native\nlanguage?</string>
     <string name="label_whats_your_name">What’s your name?</string>
     <string name="label_wich_language_do_you_wanna_learn">Which language do you want to learn?</string>
+    <string name="label_what_is_your_english_level">What is your English level?</string>
+    <string name="label_beginner">Beginner</string>
+    <string name="label_intermediate">Intermediate</string>
+    <string name="label_advanced">Advanced</string>
+    <string name="label_a1_a2" translatable="false">A1-A2</string>
+    <string name="label_b1_b2" translatable="false">B1-B2</string>
+    <string name="label_c1_c2" translatable="false">C1-C2</string>
 
     <string name="text_onboarding_screen_1">Improve your speaking and pronunciation with personalized coaching, tailored for all English levels to boost your confidence.</string>
     <string name="text_onboarding_screen_2">With this app, you\'ll study what interests you and discuss topics of your choice. Customize your learning to match your preferences and reach your goals efficiently.</string>
     <string name="text_choose_your_native_language">Choose your native or preferred language for translation.</string>
+    <string name="text_we_will_personalize_conversation">We will personalize conversations based on your language level.</string>
 
     <string name="btn_continue">Continue</string>
     <string name="btn_skip">Skip</string>

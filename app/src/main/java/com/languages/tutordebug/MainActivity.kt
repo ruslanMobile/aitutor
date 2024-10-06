@@ -24,6 +24,7 @@ import com.languages.tutordebug.ui.model.enums.UsersLanguageEnum
 import com.languages.tutordebug.ui.screens.onboarding.about_app_first.AboutAppFirstScreen
 import com.languages.tutordebug.ui.screens.onboarding.about_app_second.AboutAppSecondScreen
 import com.languages.tutordebug.ui.screens.onboarding.desired_lanaguage.DesiredLanguageScreen
+import com.languages.tutordebug.ui.screens.onboarding.language_level.LanguageLevelScreen
 import com.languages.tutordebug.ui.screens.onboarding.native_language.NativeLanguageScreen
 import com.languages.tutordebug.ui.screens.onboarding.user_name.UserNameScreen
 import com.languages.tutordebug.ui.theme.AiTutorTheme
@@ -71,6 +72,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable(DesiredLanguageScreen.route) {
                                 DesiredLanguageScreen()
+                            }
+                            composable(LanguageLevelScreen.route) {
+                                LanguageLevelScreen()
                             }
                         }
                     }
