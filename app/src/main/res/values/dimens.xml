@@ -25,5 +25,6 @@
     <dimen name="offset_50">50.dp</dimen>
     <dimen name="offset_56">56.dp</dimen>
     <dimen name="offset_62">62.dp</dimen>
+    <dimen name="offset_88">88.dp</dimen>
     <dimen name="offset_120">120.dp</dimen>
 </resources>

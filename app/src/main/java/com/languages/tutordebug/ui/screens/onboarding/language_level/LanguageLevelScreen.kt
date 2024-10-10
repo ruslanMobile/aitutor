@@ -41,6 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.languages.tutordebug.R
 import com.languages.tutordebug.ui.LocalNavController
+import com.languages.tutordebug.ui.model.Screen
 import com.languages.tutordebug.ui.model.Screen.UserName
 import com.languages.tutordebug.utils.fontDimensionResource
 import com.languages.tutordebug.utils.languageLevelList
@@ -51,7 +52,7 @@ fun LanguageLevelScreen() {
     val viewModel: LanguageLevelVM = hiltViewModel()
     LanguageLevelContent({ level ->
         viewModel.storeLanguageLevel(level)
-        //navController.navigate(UserName.route)
+        navController.navigate(Screen.CreatingPersonalCoachScreen.route)
     }, {
         navController.popBackStack()
     })
