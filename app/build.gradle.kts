@@ -101,6 +101,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.6")
     implementation("androidx.core:core-splashscreen:1.0.0")
     implementation("com.google.accompanist:accompanist-drawablepainter:0.28.0")
+
+    implementation("com.exyte:animated-navigation-bar:1.0.0")
 //
     // Compose
     // implementation "androidx.compose.ui:ui:1.4.3"

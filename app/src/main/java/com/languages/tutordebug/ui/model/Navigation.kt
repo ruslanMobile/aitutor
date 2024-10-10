@@ -8,4 +8,7 @@ sealed class Navigation(val route: String): Parcelable {
 
     @Parcelize
     object OnboardingNavigation : Navigation("onboarding")
+
+    @Parcelize
+    object MainNavigation : Navigation("main")
 }

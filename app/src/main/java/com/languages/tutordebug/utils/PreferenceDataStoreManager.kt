@@ -98,5 +98,6 @@ class PreferenceDataStoreManager @Inject constructor(
         val USER_NAME_KEY = stringPreferencesKey("user_name")
         val DESIRED_LANGUAGE_KEY = stringPreferencesKey("desired_language")
         val LANGUAGE_LEVEL_KEY = intPreferencesKey("language_level")
+        val IS_ONBOARDING_DONE_KEY = booleanPreferencesKey("is_onboarding_done")
     }
 }

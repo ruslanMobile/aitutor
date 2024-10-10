@@ -2,6 +2,8 @@ package com.languages.tutordebug.ui.screens.onboarding.creating_personal_coach
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.languages.tutordebug.utils.PreferenceDataStoreManager
+import com.languages.tutordebug.utils.PreferenceDataStoreManager.Keys.IS_ONBOARDING_DONE_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,7 +13,7 @@ import kotlin.random.Random
 
 @HiltViewModel
 class CreatingPersonalCoachVM @Inject constructor(
-
+    private val dataStoreManager: PreferenceDataStoreManager
 ) : ViewModel() {
 
     val progressState = MutableStateFlow(0f)
@@ -23,6 +25,10 @@ class CreatingPersonalCoachVM @Inject constructor(
                 delay(PROGRESS_STEP_DELAY)
             }
         }
+    }
+
+    fun onboardingDone() = viewModelScope.launch {
+        dataStoreManager.saveBoolean(IS_ONBOARDING_DONE_KEY, true)
     }
 
     private fun getRandomValue(): Float {

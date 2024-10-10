@@ -25,4 +25,10 @@ sealed class Screen(val route: String) : Parcelable {
 
     @Parcelize
     object CreatingPersonalCoachScreen : Screen("creatingPersonalCoachScreen")
+
+    @Parcelize
+    object HomeScreen : Screen("homeScreen")
+
+    @Parcelize
+    object SettingsScreen : Screen("settingScreen")
 }

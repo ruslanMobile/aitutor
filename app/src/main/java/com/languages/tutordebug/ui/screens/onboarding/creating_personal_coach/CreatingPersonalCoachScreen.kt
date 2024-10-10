@@ -21,14 +21,13 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.app.ActivityCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.languages.tutordebug.R
 import com.languages.tutordebug.ui.LocalNavController
 import com.languages.tutordebug.ui.custom_ui.AnimatedLinearProgressIndicator
 import com.languages.tutordebug.ui.custom_ui.UserFeedbackView
-import com.languages.tutordebug.ui.model.Screen
+import com.languages.tutordebug.ui.model.Navigation.MainNavigation
 import com.languages.tutordebug.utils.fontDimensionResource
 import com.languages.tutordebug.utils.userFeedbackList
 
@@ -44,7 +43,8 @@ fun CreatingPersonalCoachScreen() {
         if (value < 1f)
             value
         else {
-            navController.navigate(Screen.UserName.route)
+            viewModel.onboardingDone()
+            navController.navigate(MainNavigation.route)
             value
         }
     }

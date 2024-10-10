@@ -39,7 +39,7 @@ fun UserFeedbackView(
             .height(dimensionResource(id = R.dimen.offset_88))
             .fillMaxWidth(0.9f)
             .background(
-                MaterialTheme.colorScheme.primaryContainer,
+                MaterialTheme.colorScheme.primaryContainer.copy(0.5f),
                 shape = RoundedCornerShape(dimensionResource(id = R.dimen.offset_40))
             )
             .padding(vertical = dimensionResource(id = R.dimen.offset_4)),
