@@ -26,6 +26,14 @@ class PreferenceDataStoreManager @Inject constructor(
         return prefs[key]
     }
 
+    fun readIntBlocking(key: Preferences.Key<Int>): Int {
+        var value: Int?
+        runBlocking {
+            value = readInt(key)
+        }
+        return value ?: 0
+    }
+
     suspend fun saveBoolean(key: Preferences.Key<Boolean>, value: Boolean) {
         dataStore.edit { settings ->
             settings[key] = value

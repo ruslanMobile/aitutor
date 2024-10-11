@@ -86,7 +86,9 @@ fun NativeLanguageScreen() {
 
 @Composable
 fun NativeLanguageContent(
-    funcNextScreen: () -> Unit, funcBack: () -> Unit, funcSelect: (UserLanguage) -> Unit
+    funcNextScreen: () -> Unit,
+    funcBack: () -> Unit,
+    funcSelect: (UserLanguage) -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxSize()

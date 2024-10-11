@@ -16,11 +16,17 @@
     <string name="label_c1_c2" translatable="false">C1-C2</string>
     <string name="label_creating_your_personal_language_coach" translatable="false">Creating Your Personal Language Coach ...</string>
     <string name="label_percents">%s %%</string>
+    <string name="label_settings">Settings</string>
+    <string name="label_native_language_2">Native language</string>
+    <string name="label_your_name">Your name</string>
+    <string name="label_target_language">Target language</string>
+    <string name="label_target_language_level">Target language level</string>
 
     <string name="text_onboarding_screen_1">Improve your speaking and pronunciation with personalized coaching, tailored for all English levels to boost your confidence.</string>
     <string name="text_onboarding_screen_2">With this app, you\'ll study what interests you and discuss topics of your choice. Customize your learning to match your preferences and reach your goals efficiently.</string>
     <string name="text_choose_your_native_language">Choose your native or preferred language for translation.</string>
     <string name="text_we_will_personalize_conversation">We will personalize conversations based on your language level.</string>
+    <string name="text_settings_sescription">Manage and personalize your account settings below to ensure the best experience tailored to your preferences and needs.</string>
 
     <string name="btn_continue">Continue</string>
     <string name="btn_skip">Skip</string>

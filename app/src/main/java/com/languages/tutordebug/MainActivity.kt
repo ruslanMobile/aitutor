@@ -82,15 +82,15 @@ class MainActivity : ComponentActivity() {
                                     modifier = Modifier
                                         .height(dimensionResource(id = R.dimen.offset_62)),
                                     selectedIndex = selectedIndex.value,
-                                    barColor = MaterialTheme.colorScheme.surfaceContainer,
-                                    ballColor = MaterialTheme.colorScheme.surfaceContainer
+                                    barColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                                    ballColor = MaterialTheme.colorScheme.surfaceContainerHigh
                                 ) {
                                     BottomNavItem.values().forEach { item ->
                                         Box(
                                             modifier = Modifier
                                                 .fillMaxSize()
                                                 .background(
-                                                    if (selectedIndex.value == item.ordinal) MaterialTheme.colorScheme.surfaceContainerHighest else MaterialTheme.colorScheme.surfaceContainer
+                                                    if (selectedIndex.value == item.ordinal) MaterialTheme.colorScheme.surfaceContainerHighest else MaterialTheme.colorScheme.surfaceContainerHigh
                                                 )
                                                 .clickable {
                                                     selectedIndex.value = item.ordinal

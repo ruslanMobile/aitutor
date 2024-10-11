@@ -15,6 +15,8 @@ class NativeLanguageVM @Inject constructor(
 ) : ViewModel() {
 
     fun storeUserNativeLanguage(model: UsersLanguageEnum?) = viewModelScope.launch {
-        dataStoreManager.saveString(USER_LANGUAGE_KEY, model?.lCode ?: return@launch)
+        dataStoreManager.saveString(USER_LANGUAGE_KEY, model?.languageName ?: return@launch)
     }
+
+    fun readUserNativeLanguage() = dataStoreManager.readStringBlocking(USER_LANGUAGE_KEY)
 }

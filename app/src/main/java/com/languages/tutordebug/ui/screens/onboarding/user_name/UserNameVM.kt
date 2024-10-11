@@ -2,6 +2,7 @@ package com.languages.tutordebug.ui.screens.onboarding.user_name
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.languages.tutordebug.utils.DEFAULT_USER_NAME
 import com.languages.tutordebug.utils.PreferenceDataStoreManager
 import com.languages.tutordebug.utils.PreferenceDataStoreManager.Keys.USER_NAME_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,6 +15,6 @@ class UserNameVM @Inject constructor(
 ) : ViewModel() {
 
     fun saveUserName(name: String) = viewModelScope.launch {
-        dataStoreManager.saveString(USER_NAME_KEY, name)
+        dataStoreManager.saveString(USER_NAME_KEY, name.ifBlank { DEFAULT_USER_NAME })
     }
 }
