@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.languages.tutordebug.ui.model.enums.UsersLanguageEnum
 import com.languages.tutordebug.utils.PreferenceDataStoreManager
+import com.languages.tutordebug.utils.PreferenceDataStoreManager.Keys.IS_ONBOARDING_DONE_KEY
 import com.languages.tutordebug.utils.PreferenceDataStoreManager.Keys.USER_LANGUAGE_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,5 +19,5 @@ class NativeLanguageVM @Inject constructor(
         dataStoreManager.saveString(USER_LANGUAGE_KEY, model?.languageName ?: return@launch)
     }
 
-    fun readUserNativeLanguage() = dataStoreManager.readStringBlocking(USER_LANGUAGE_KEY)
+    fun isOnboardingDone() = dataStoreManager.readBooleanBlocking(IS_ONBOARDING_DONE_KEY)
 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Ai tutor</string>
 
-    <string name="label_number_out_of_number">%s/%s</string>
+    <string name="label_number_out_of_number">%s/6</string>
     <string name="label_customized_speaking_pronunciation_coaching">Customized Speaking &amp; Pronunciation Coaching</string>
     <string name="label_create_your_personal_study_plan">Create Your Personal\nStudy Plan</string>
     <string name="label_native_language">What’s your native\nlanguage?</string>

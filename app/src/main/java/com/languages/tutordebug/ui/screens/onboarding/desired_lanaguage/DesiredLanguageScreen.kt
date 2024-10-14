@@ -60,9 +60,14 @@ import com.languages.tutordebug.utils.fontDimensionResource
 fun DesiredLanguageScreen() {
     val navController = LocalNavController.current
     val viewModel: DesiredLanguageVM = hiltViewModel()
-    DesiredLanguageContent({ value ->
-        viewModel.storeDesiredLanguage(value)
-        navController.navigate(LanguageLevelScreen.route)
+    val isOnboardingDone = viewModel.isOnboardingDone()
+    DesiredLanguageContent(isOnboardingDone, { value ->
+        viewModel.storeDesiredLanguage(value) {
+            if (isOnboardingDone)
+                navController.popBackStack()
+            else
+                navController.navigate(LanguageLevelScreen.route)
+        }
     }, {
         navController.popBackStack()
     })
@@ -70,6 +75,7 @@ fun DesiredLanguageScreen() {
 
 @Composable
 fun DesiredLanguageContent(
+    isOnboardingDone: Boolean,
     funcNextScreen: (String) -> Unit,
     funcBack: () -> Unit
 ) {
@@ -111,11 +117,12 @@ fun DesiredLanguageContent(
                         contentDescription = ""
                     )
                 }
-
-                Text(
-                    text = stringResource(id = R.string.label_number_out_of_number, "5", "3"),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                if (!isOnboardingDone) {
+                    Text(
+                        text = stringResource(id = R.string.label_number_out_of_number, "5"),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
 
             Text(
@@ -235,5 +242,5 @@ fun DesiredLanguageContent(
 @Preview(showSystemUi = true)
 @Composable
 fun DesiredLanguagePreview() {
-    DesiredLanguageContent({}, {})
+    DesiredLanguageContent(false, {}, {})
 }

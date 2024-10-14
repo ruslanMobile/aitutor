@@ -45,10 +45,14 @@ import com.languages.tutordebug.utils.fontDimensionResource
 fun UserNameScreen() {
     val navController = LocalNavController.current
     val viewModel: UserNameVM = hiltViewModel()
-    UserNameContent({ isSkip, value ->
+    val isOnboardingDone = viewModel.isOnboardingDone()
+    UserNameContent(isOnboardingDone, { isSkip, value ->
         if (!isSkip)
             viewModel.saveUserName(value)
-        navController.navigate(Screen.DesiredLanguageScreen.route)
+        if (isOnboardingDone)
+            navController.popBackStack()
+        else
+            navController.navigate(Screen.DesiredLanguageScreen.route)
     }, {
         navController.popBackStack()
     })
@@ -56,6 +60,7 @@ fun UserNameScreen() {
 
 @Composable
 fun UserNameContent(
+    isOnboardingDone: Boolean,
     funcNextScreen: (Boolean, String) -> Unit,
     funcBack: () -> Unit
 ) {
@@ -97,11 +102,12 @@ fun UserNameContent(
                         contentDescription = ""
                     )
                 }
-
-                Text(
-                    text = stringResource(id = R.string.label_number_out_of_number, "4", "3"),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                if (!isOnboardingDone) {
+                    Text(
+                        text = stringResource(id = R.string.label_number_out_of_number, "4"),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
 
             Text(
@@ -131,7 +137,8 @@ fun UserNameContent(
             Spacer(modifier = Modifier.weight(11f))
             Button(
                 onClick = {
-                    funcNextScreen.invoke(false, nameState.value)
+                    if (nameState.value.isNotBlank())
+                        funcNextScreen.invoke(false, nameState.value)
                 },
                 modifier = Modifier
                     .fillMaxWidth(0.9f),
@@ -139,7 +146,7 @@ fun UserNameContent(
                     dimensionResource(id = R.dimen.offset_16)
                 ),
                 colors = ButtonDefaults.outlinedButtonColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = if (nameState.value.isBlank()) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.primaryContainer
                 )
             ) {
                 Text(
@@ -151,7 +158,7 @@ fun UserNameContent(
                     ),
                     style = TextStyle(
                         fontSize = fontDimensionResource(id = R.dimen.text_14),
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        color = if (nameState.value.isBlank()) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onPrimaryContainer,
                         fontFamily = FontFamily(Font(R.font.lato_bold)),
                         textAlign = TextAlign.Center
                     )
@@ -199,5 +206,5 @@ fun UserNameContent(
 @Preview(showSystemUi = true)
 @Composable
 fun UserNamePreview() {
-    UserNameContent({ _, _ -> }, {})
+    UserNameContent(false, { _, _ -> }, {})
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.languages.tutordebug.utils.DEFAULT_USER_NAME
 import com.languages.tutordebug.utils.PreferenceDataStoreManager
+import com.languages.tutordebug.utils.PreferenceDataStoreManager.Keys.IS_ONBOARDING_DONE_KEY
 import com.languages.tutordebug.utils.PreferenceDataStoreManager.Keys.USER_NAME_KEY
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,4 +18,6 @@ class UserNameVM @Inject constructor(
     fun saveUserName(name: String) = viewModelScope.launch {
         dataStoreManager.saveString(USER_NAME_KEY, name.ifBlank { DEFAULT_USER_NAME })
     }
+
+    fun isOnboardingDone() = dataStoreManager.readBooleanBlocking(IS_ONBOARDING_DONE_KEY)
 }

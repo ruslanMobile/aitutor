@@ -74,7 +74,7 @@ fun AboutAppFirstContent(
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    text = stringResource(id = R.string.label_number_out_of_number, "1", "3"),
+                    text = stringResource(id = R.string.label_number_out_of_number, "1"),
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }

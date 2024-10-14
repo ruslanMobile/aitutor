@@ -72,11 +72,14 @@ fun NativeLanguageScreen() {
     val viewModel: NativeLanguageVM = hiltViewModel()
     val activity = LocalContext.current as MainActivity
     val context = LocalContext.current
-    NativeLanguageContent({
+    val isOnboardingDone = viewModel.isOnboardingDone()
+    NativeLanguageContent(isOnboardingDone, {
         viewModel.storeUserNativeLanguage(userLanguage.value)
-        navController.navigate(UserName.route)
         activity.setLocale(context)
         activity.recreate()
+        if (isOnboardingDone)
+            navController.popBackStack()
+        else navController.navigate(UserName.route)
     }, {
         navController.popBackStack()
     }, {
@@ -86,6 +89,7 @@ fun NativeLanguageScreen() {
 
 @Composable
 fun NativeLanguageContent(
+    isOnboardingDone: Boolean,
     funcNextScreen: () -> Unit,
     funcBack: () -> Unit,
     funcSelect: (UserLanguage) -> Unit
@@ -124,11 +128,12 @@ fun NativeLanguageContent(
                         contentDescription = ""
                     )
                 }
-
-                Text(
-                    text = stringResource(id = R.string.label_number_out_of_number, "3", "3"),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                if (!isOnboardingDone) {
+                    Text(
+                        text = stringResource(id = R.string.label_number_out_of_number, "3"),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
 
             Text(
@@ -258,5 +263,5 @@ fun NativeLanguageContent(
 @Preview(showSystemUi = true)
 @Composable
 fun NativeLanguagePreview() {
-    NativeLanguageContent({}, {}, {})
+    NativeLanguageContent(false, {}, {}, {})
 }

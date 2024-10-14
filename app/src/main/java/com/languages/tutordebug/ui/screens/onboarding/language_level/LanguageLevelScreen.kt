@@ -50,9 +50,14 @@ import com.languages.tutordebug.utils.languageLevelList
 fun LanguageLevelScreen() {
     val navController = LocalNavController.current
     val viewModel: LanguageLevelVM = hiltViewModel()
-    LanguageLevelContent({ level ->
-        viewModel.storeLanguageLevel(level)
-        navController.navigate(Screen.CreatingPersonalCoachScreen.route)
+    val isOnboardingDone = viewModel.isOnboardingDone()
+    LanguageLevelContent(isOnboardingDone, { level ->
+        viewModel.storeLanguageLevel(level) {
+            if (isOnboardingDone)
+                navController.popBackStack()
+            else
+                navController.navigate(Screen.CreatingPersonalCoachScreen.route)
+        }
     }, {
         navController.popBackStack()
     })
@@ -60,7 +65,9 @@ fun LanguageLevelScreen() {
 
 @Composable
 fun LanguageLevelContent(
-    funcNextScreen: (Int) -> Unit, funcBack: () -> Unit
+    isOnboardingDone: Boolean,
+    funcNextScreen: (Int) -> Unit,
+    funcBack: () -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxSize()
@@ -96,11 +103,12 @@ fun LanguageLevelContent(
                         contentDescription = ""
                     )
                 }
-
-                Text(
-                    text = stringResource(id = R.string.label_number_out_of_number, "6", "3"),
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                if (!isOnboardingDone) {
+                    Text(
+                        text = stringResource(id = R.string.label_number_out_of_number, "6"),
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
 
             Text(
@@ -236,5 +244,5 @@ fun LanguageLevelContent(
 @Preview(showSystemUi = true)
 @Composable
 fun LanguageLevelPreview() {
-    LanguageLevelContent({}, {})
+    LanguageLevelContent(false, {}, {})
 }

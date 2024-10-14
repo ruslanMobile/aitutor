@@ -118,7 +118,7 @@ fun AboutAppSecondContent(
                 }
 
                 Text(
-                    text = stringResource(id = R.string.label_number_out_of_number, "2", "3"),
+                    text = stringResource(id = R.string.label_number_out_of_number, "2"),
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
